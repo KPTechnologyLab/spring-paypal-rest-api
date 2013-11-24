@@ -7,7 +7,8 @@ Compatibility
 =============
 
 - **Compatible with PayPal REST API version**
-```xml
+
+```
 <dependency>
     <groupId>com.paypal.sdk</groupId>
     <artifactId>rest-api-sdk</artifactId>
