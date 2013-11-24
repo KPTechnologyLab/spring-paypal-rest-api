@@ -17,17 +17,17 @@ import static org.hamcrest.Matchers.*;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:paymentTemplateTest.xml")
-public class PayPalPaymentTemplateTest {
+public class PayPalRestTemplateTest {
 
     @Resource
-    private PayPalPaymentTemplate payPalPaymentTemplate;
+    private PayPalRestTemplate payPalRestTemplate;
 
     @Test
     public void shouldCreatePayment() throws PayPalRESTException {
         //Given
         Payment payment = createPayment();
         //When
-        Payment paymentCreated = payPalPaymentTemplate.create(payment);
+        Payment paymentCreated = payPalRestTemplate.create(payment);
         //Then
         assertThat(paymentCreated, is(notNullValue()));
         assertThat(paymentCreated.getState(), is(equalToIgnoringCase("approved")));
@@ -36,9 +36,9 @@ public class PayPalPaymentTemplateTest {
     @Test
     public void shouldCapturePayment() throws PayPalRESTException {
         //Given
-        Payment paymentCreated = payPalPaymentTemplate.create(createPayment());
+        Payment paymentCreated = payPalRestTemplate.create(createPayment());
         //When
-        Capture capture = payPalPaymentTemplate.capture(paymentCreated.getId());
+        Capture capture = payPalRestTemplate.capture(paymentCreated.getId());
         //Then
         assertThat(capture, is(notNullValue()));
         assertThat(capture.getState(), is(equalToIgnoringCase("completed")));

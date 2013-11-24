@@ -6,7 +6,7 @@
        				       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
        				       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.2.xsd">
 
-   <bean id="payPalPaymentTemplate" class="com.kptechnologylab.springpaypal.PayPalPaymentTemplate">
+   <bean id="payPalPaymentTemplate" class="com.kptechnologylab.springpaypal.PayPalRestTemplate">
        <constructor-arg index="0" value="EBWKjlELKMYqRNQ6sYvFo64FtaRLRR5BdHEESmha49TM"/>
        <constructor-arg index="1" value="EO422dn3gQLgDbuwqTjzrFgFtaRLRR5BdHEESmha49TM"/>
        <constructor-arg index="2">

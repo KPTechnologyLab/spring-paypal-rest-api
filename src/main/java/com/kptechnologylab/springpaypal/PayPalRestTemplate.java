@@ -1,31 +1,29 @@
 package com.kptechnologylab.springpaypal;
 
-import com.kptechnologylab.springpaypal.builders.Builders;
 import com.paypal.api.payments.*;
 import com.paypal.core.rest.OAuthTokenCredential;
 import com.paypal.core.rest.PayPalRESTException;
 import org.springframework.util.Assert;
-import sun.security.krb5.internal.AuthorizationDataEntry;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import static com.kptechnologylab.springpaypal.builders.Builders.amountBuilder;
 
-public class PayPalPaymentTemplate implements PayPalPaymentOperations {
+public class PayPalRestTemplate implements PayPalPaymentOperations {
 
     private OAuthTokenCredential authTokenCredential;
 
-    public PayPalPaymentTemplate(){
+    public PayPalRestTemplate(){
 
     }
 
-    public PayPalPaymentTemplate(String oAuthClientId, String oAuthClientSecret) {
+    public PayPalRestTemplate(String oAuthClientId, String oAuthClientSecret) {
         this(oAuthClientId,oAuthClientSecret, new HashMap<String, String>());
     }
 
 
-    public PayPalPaymentTemplate(String oAuthClientId, String oAuthClientSecret, Map<String, String> config) {
+    public PayPalRestTemplate(String oAuthClientId, String oAuthClientSecret, Map<String, String> config) {
         Assert.notNull(oAuthClientId, "'oAuthClientId' cannot be null");
         Assert.notNull(oAuthClientSecret,"'oAuthClientSecret' cannot be null");
         this.authTokenCredential = new OAuthTokenCredential(oAuthClientId, oAuthClientSecret,config);
