@@ -3,8 +3,8 @@ Spring PayPal REST API
 
 Spring PayPal REST API integration. 
 
-Adding the dependency to the project
-====================================
+Compatibility
+=============
 
 - **Compatible with PayPal REST API version**
 ```xml
@@ -14,6 +14,10 @@ Adding the dependency to the project
     <version>0.7.1</version>
 </dependency>
 ```
+
+Usage
+=====
+
 
 - **Building the project**
 ```
